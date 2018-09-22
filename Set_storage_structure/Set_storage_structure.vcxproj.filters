@@ -18,12 +18,18 @@
     <ClInclude Include="pch.h">
       <Filter>Файлы заголовков</Filter>
     </ClInclude>
+    <ClInclude Include="BitField.h">
+      <Filter>Файлы заголовков</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="pch.cpp">
       <Filter>Исходные файлы</Filter>
     </ClCompile>
     <ClCompile Include="Set_storage_structure.cpp">
+      <Filter>Исходные файлы</Filter>
+    </ClCompile>
+    <ClCompile Include="BitField.cpp">
       <Filter>Исходные файлы</Filter>
     </ClCompile>
   </ItemGroup>
