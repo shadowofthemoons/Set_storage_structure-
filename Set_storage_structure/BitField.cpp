@@ -58,7 +58,12 @@ void TBitField::SetBit(const int n)
 	int MemMask = GetMemMask(n);
 	pMem[MemIndex] = pMem[MemIndex] | MemMask;
 }
-
+void TBitField::ClrBit(const int n)
+{
+	int MemIndex = GetMemIndex(n);
+	int MemMask = GetMemMask(n);
+	pMem[MemIndex] = pMem[MemIndex] & (~MemMask);
+}
 
 TBitField::~TBitField()
 {

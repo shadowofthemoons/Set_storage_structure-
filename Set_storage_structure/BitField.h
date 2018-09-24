@@ -16,7 +16,7 @@ public:
 	// доступ к битам
 	int GetLength(void) const; // получить длину (к-во битов)
     void SetBit(const int n); // установить бит
-//	void ClrBit(const int n); // очистить бит
+	void ClrBit(const int n); // очистить бит
 //	int GetBit(const int n) const; // получить значение бита
 	// битовые операции
 //	int operator==(const TBitField &bf); // сравнение
