@@ -7,15 +7,15 @@ private:
 	uint *pMem; // память для представления битового поля
 	int MemLen; // к-во эл-тов Мем для представления бит.поля
 	// методы реализации
-//	int GetMemIndex(const int n) const; // индекс в pМем для бита n
-//	uint GetMemMask(const int n) const; // битовая маска для бита n
+	int GetMemIndex(const int n) const; // индекс в pМем для бита n
+	uint GetMemMask(const int n) const; // битовая маска для бита n
 public:
 	TBitField(int len);
 	TBitField(const TBitField &bf);
 	~TBitField();
 	// доступ к битам
-	//int GetLength(void) const; // получить длину (к-во битов)
-//void SetBit(const int n); // установить бит
+	int GetLength(void) const; // получить длину (к-во битов)
+    void SetBit(const int n); // установить бит
 //	void ClrBit(const int n); // очистить бит
 //	int GetBit(const int n) const; // получить значение бита
 	// битовые операции

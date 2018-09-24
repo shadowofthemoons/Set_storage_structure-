@@ -35,6 +35,31 @@ TBitField::TBitField(const TBitField &bf)
 		pMem[i] = bf.pMem[i];
 	}
 }
+
+int TBitField:: GetMemIndex(const int n) const
+{
+	return (n/32);
+}
+
+uint TBitField::GetMemMask(const int n) const
+{
+	uint a = 1;
+	return ((a << (n%32)));
+}
+
+int TBitField::GetLength(void) const
+{
+	return (BitLen);
+}
+
+void TBitField::SetBit(const int n)
+{
+	int MemIndex = GetMemIndex(n);
+	int MemMask = GetMemMask(n);
+	pMem[MemIndex] = pMem[MemIndex] | MemMask;
+}
+
+
 TBitField::~TBitField()
 {
 	delete pMem;
