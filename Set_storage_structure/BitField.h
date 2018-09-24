@@ -1,4 +1,7 @@
 #pragma once
+#include <iostream>
+using namespace std;
+
 typedef unsigned int uint;
 class TBitField
 {
@@ -17,14 +20,14 @@ public:
 	int GetLength(void) const; // получить длину (к-во битов)
     void SetBit(const int n); // установить бит
 	void ClrBit(const int n); // очистить бит
-//	int GetBit(const int n) const; // получить значение бита
+	int GetBit(const int n) const; // получить значение бита
 	// битовые операции
-//	int operator==(const TBitField &bf); // сравнение
-	//TBitField& operator=(const TBitField &bf); // присваивание
-//	TBitField operator|(const TBitField &bf); // операция "или"
-//	TBitField operator&(const TBitField &bf); // операция "и"
-//	TBitField operator~(void); // отрицание
-	//friend istream &operator>>(istream &istr, TBitField &bf);
-	//friend ostream &operator<<(ostream &ostr, const TBitField &bf);
+	int operator==(const TBitField &bf); // сравнение
+	TBitField& operator=(const TBitField &bf); // присваивание
+	TBitField operator|(const TBitField &bf); // операция "или"
+	TBitField operator&(const TBitField &bf); // операция "и"
+	TBitField operator~(void); // отрицание
+	friend istream & operator>>(istream &istr, TBitField &bf);
+	friend ostream &operator<<(ostream &ostr, const TBitField &bf);
 };
 
