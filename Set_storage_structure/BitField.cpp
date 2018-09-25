@@ -130,7 +130,7 @@ TBitField TBitField:: operator|(const TBitField &bf)
 TBitField TBitField::operator&(const TBitField &bf)
 {
 	int i, len = BitLen;
-	if (bf.BitLen > len)
+	if (bf.BitLen < len)
 		len = bf.BitLen;
 	TBitField temp(len);
 	for (i = 0; i < MemLen; i++)
@@ -138,7 +138,48 @@ TBitField TBitField::operator&(const TBitField &bf)
 	for (i = 0; i < bf.MemLen; i++)
 		temp.pMem[i] &= bf.pMem[i];
 	return temp;
-}TBitField TBitField::operator~(void){	for (int i = 0; i < MemLen; i++)	{		pMem[i] = ~pMem[i];	}	return *this;}istream & operator >>(istream &ist, TBitField &bf){	int b,n;	cout << "enter BitLen ";	cin >> n;	bf = TBitField(n);	cout << "enter bit mask";	for (int i = 0; i < bf.BitLen; i++)	{		cin >> b;		if (b == 1)		{			bf.SetBit(i);		}	}	return ist;}ostream &operator<<(ostream &ost, const TBitField &bf){	for (int i = 0; i < bf.BitLen;i++)	{		cout << bf.GetBit(i);	}	return ost;}
+}
+
+TBitField TBitField::operator~(void)
+{
+	for (int i = 0; i < MemLen; i++)
+	{
+		pMem[i] = ~pMem[i];
+	}
+	return *this;
+}
+
+istream & operator >>(istream &ist, TBitField &bf)
+{
+	int b,n;
+	cout << "enter BitLen ";
+	cin >> n;
+	bf = TBitField(n);
+	cout << "enter bit field, if the end of the the enter -1" << endl;
+	while (1)
+	{
+		cin >> b;
+		if (b!=-1)
+		{
+			bf.SetBit(b);
+		}
+		else
+		{
+			break;
+		}
+	}
+	return ist;
+}
+
+ostream &operator<<(ostream &ost, const TBitField &bf)
+{
+	for (int i = 0; i < bf.BitLen;i++)
+	{
+		cout << bf.GetBit(i);
+	}
+	return ost;
+}
+
 TBitField::~TBitField()
 {
 	delete pMem;
