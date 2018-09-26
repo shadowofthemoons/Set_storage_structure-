@@ -153,6 +153,7 @@
   <ItemGroup>
     <ClInclude Include="BitField.h" />
     <ClInclude Include="pch.h" />
+    <ClInclude Include="Set.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="BitField.cpp" />
@@ -162,6 +163,7 @@
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">Create</PrecompiledHeader>
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|x64'">Create</PrecompiledHeader>
     </ClCompile>
+    <ClCompile Include="Set.cpp" />
     <ClCompile Include="Set_storage_structure.cpp" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
