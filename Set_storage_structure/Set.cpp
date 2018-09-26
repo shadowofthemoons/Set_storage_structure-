@@ -97,6 +97,37 @@ TSet TSet:: operator~ (void)
 	return *this;
 }
 
+ istream &operator>>(istream &istr, TSet &bf)
+{
+	 istr >> bf.BitField;
+	 bf.MaxPower = bf.BitField.GetLength();
+	 return (istr);
+}
+ ostream &operator<<(ostream &ostr, const TSet &bf)
+ {
+	 int i;
+	 ostr << "to output as a bit field, enter 1, and if as a set, enter 2";
+	 cin >> i;
+	 if (i == 1)
+	 {
+		 ostr << bf.BitField;
+	 }
+	 else
+	 {
+		 for (i = 0; i < bf.MaxPower; i++)
+		 {
+			 if (bf.IsMember(i))
+			 {
+				 ostr << i << ' ';
+			 }
+		 }
+		 ostr << endl;
+	 }
+	 return (ostr);
+ }
+
+
+
 TSet::~TSet()
 {
 }
