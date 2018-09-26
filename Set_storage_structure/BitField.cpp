@@ -4,6 +4,13 @@
 using namespace std;
 
 
+TBitField::TBitField()
+{
+	BitLen = 0;
+	MemLen = 0;
+	pMem = NULL;
+	
+}
 
 TBitField::TBitField(int len)
 {

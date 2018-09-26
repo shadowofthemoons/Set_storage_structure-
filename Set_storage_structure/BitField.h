@@ -14,6 +14,7 @@ private:
 	uint GetMemMask(const int n) const; // битовая маска для бита n
 public:
 	TBitField(int len);
+	TBitField();
 	TBitField(const TBitField &bf);
 	~TBitField();
 	// доступ к битам
