@@ -22,6 +22,27 @@ TSet::TSet(const TBitField &bf)
 	BitField = bf;
 }
 
+
+int TSet::GetMaxPower(void) const
+{
+	return (MaxPower);
+}
+
+void TSet::InsElem(const int n)
+{
+	BitField.SetBit(n);
+}
+
+void TSet::DelElem(const int n)
+{
+	BitField.ClrBit(n);
+}
+
+int TSet::IsMember(const int n) const
+{
+	return(BitField.GetBit(n));
+}
+
 TSet::~TSet()
 {
 }

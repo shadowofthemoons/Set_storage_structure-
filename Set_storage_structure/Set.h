@@ -14,10 +14,10 @@ public:
 	~TSet();
 	//	operator TBitField(); // преобразование типа к битовому полю
 		// доступ к битам
-//	int GetMaxPower(void) const; // максимальная мощность множества
-//	void InsElem(const int n); // включить элемент в множество
-	//void DelElem(const int n); // удалить элемент из множества
-	//int IsMember(const int n) const; // проверить наличие элемента в
+	int GetMaxPower(void) const; // максимальная мощность множества
+	void InsElem(const int n); // включить элемент в множество
+	void DelElem(const int n); // удалить элемент из множества
+	int IsMember(const int n) const; // проверить наличие элемента в
 	// множестве
 	// теоретико-множественные операции
 //	int operator== (const TSet &s); // сравнение
