@@ -43,6 +43,35 @@ int TSet::IsMember(const int n) const
 	return(BitField.GetBit(n));
 }
 
+
+int TSet:: operator== (const TSet &s)
+{
+	if (BitField == s.BitField)
+	{
+		return (1);
+	}
+	return (0);
+}
+
+TSet& TSet:: operator=(const TSet &s)
+{
+	BitField = s.BitField;
+	MaxPower = s.MaxPower;
+	return *this;
+}
+
+TSet TSet:: operator+ (const int n)
+{
+	BitField.SetBit(n);
+	return *this;
+}
+TSet TSet:: operator- (const int n)
+{
+	BitField.ClrBit(n);
+	return *this;
+}
+
+
 TSet::~TSet()
 {
 }

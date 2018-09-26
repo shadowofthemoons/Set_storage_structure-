@@ -20,10 +20,10 @@ public:
 	int IsMember(const int n) const; // проверить наличие элемента в
 	// множестве
 	// теоретико-множественные операции
-//	int operator== (const TSet &s); // сравнение
-	//TSet& operator=(const TSet &s); // присваивание
-//	TSet operator+ (const int n); // включение элемента в множество
-//	TSet operator- (const int n); // удаление элемента из множества
+	int operator== (const TSet &s); // сравнение
+	TSet& operator=(const TSet &s); // присваивание
+	TSet operator+ (const int n); // включение элемента в множество
+	TSet operator- (const int n); // удаление элемента из множества
 	//TSet operator+ (const TSet &s); // объединение
 	//TSet operator* (const TSet &s); // пересечение
 	//TSet operator~ (void); // дополнение
