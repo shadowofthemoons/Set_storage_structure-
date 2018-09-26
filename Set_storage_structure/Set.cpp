@@ -71,6 +71,31 @@ TSet TSet:: operator- (const int n)
 	return *this;
 }
 
+TSet TSet:: operator+ (const TSet &s)
+{
+	if (s.MaxPower > MaxPower)
+	{
+		MaxPower = s.MaxPower;
+	}
+	BitField | s.BitField;
+	return *this;
+}
+
+TSet TSet:: operator* (const TSet &s)
+{
+	if (s.MaxPower < MaxPower)
+	{
+		MaxPower = s.MaxPower;
+	}
+	BitField & s.BitField;
+	return *this;
+}
+
+TSet TSet:: operator~ (void)
+{
+	BitField = ~BitField;
+	return *this;
+}
 
 TSet::~TSet()
 {

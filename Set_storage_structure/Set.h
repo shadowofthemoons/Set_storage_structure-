@@ -24,9 +24,9 @@ public:
 	TSet& operator=(const TSet &s); // присваивание
 	TSet operator+ (const int n); // включение элемента в множество
 	TSet operator- (const int n); // удаление элемента из множества
-	//TSet operator+ (const TSet &s); // объединение
-	//TSet operator* (const TSet &s); // пересечение
-	//TSet operator~ (void); // дополнение
+	TSet operator+ (const TSet &s); // объединение
+	TSet operator* (const TSet &s); // пересечение
+	TSet operator~ (void); // дополнение
 	//friend istream &operator>>(istream &istr, TSet &bf);
 	//friend ostream &operator<<(ostream &ostr, const TSet &bf);
 
