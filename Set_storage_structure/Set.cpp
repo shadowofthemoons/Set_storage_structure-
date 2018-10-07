@@ -4,24 +4,20 @@
 #include <iostream>
 using namespace std;
 
-TSet::TSet(int mp)
+TSet::TSet(int mp) :BitField(mp)
 {
 	MaxPower = mp;
-	BitField = TBitField(mp);
 }
 
-TSet::TSet(const TSet &s)
+TSet::TSet(const TSet &s) : BitField(s.BitField)
 {
 	MaxPower = s.MaxPower;
-	BitField = s.BitField;
 }
 
-TSet::TSet(const TBitField &bf)
+TSet::TSet(const TBitField &bf) : BitField(bf)
 {
 	MaxPower = bf.GetLength();
-	BitField = bf;
 }
-
 
 int TSet::GetMaxPower(void) const
 {
@@ -77,17 +73,17 @@ TSet TSet:: operator+ (const TSet &s)
 	{
 		MaxPower = s.MaxPower;
 	}
-	BitField | s.BitField;
+	BitField = BitField | s.BitField;
 	return *this;
 }
 
-TSet TSet:: operator* (const TSet &s)
+TSet TSet:: operator * (const TSet &s)
 {
 	if (s.MaxPower < MaxPower)
 	{
 		MaxPower = s.MaxPower;
 	}
-	BitField & s.BitField;
+	BitField = BitField & s.BitField;
 	return *this;
 }
 
@@ -97,36 +93,34 @@ TSet TSet:: operator~ (void)
 	return *this;
 }
 
- istream &operator>>(istream &istr, TSet &bf)
+istream &operator>>(istream &istr, TSet &bf)
 {
-	 istr >> bf.BitField;
-	 bf.MaxPower = bf.BitField.GetLength();
-	 return (istr);
+	istr >> bf.BitField;
+	bf.MaxPower = bf.BitField.GetLength();
+	return (istr);
 }
- ostream &operator<<(ostream &ostr, const TSet &bf)
- {
-	 int i;
-	 ostr << "to output as a bit field, enter 1, and if as a set, enter 2";
-	 cin >> i;
-	 if (i == 1)
-	 {
-		 ostr << bf.BitField;
-	 }
-	 else
-	 {
-		 for (i = 0; i < bf.MaxPower; i++)
-		 {
-			 if (bf.IsMember(i))
-			 {
-				 ostr << i << ' ';
-			 }
-		 }
-		 ostr << endl;
-	 }
-	 return (ostr);
- }
-
-
+ostream &operator<<(ostream &ostr, const TSet &bf)
+{
+	int i;
+	ostr << endl << "to output as a bit field, enter 1, and if as a set, enter 2" << endl;
+	cin >> i;
+	if (i == 1)
+	{
+		ostr << bf.BitField;
+	}
+	else
+	{
+		for (i = 0; i < bf.MaxPower; i++)
+		{
+			if (bf.IsMember(i))
+			{
+				ostr << i << ' ';
+			}
+		}
+		ostr << endl;
+	}
+	return (ostr);
+}
 
 TSet::~TSet()
 {

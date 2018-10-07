@@ -1,3 +1,4 @@
+
 #pragma once
 #include <iostream>
 using namespace std;
@@ -14,12 +15,11 @@ private:
 	uint GetMemMask(const int n) const; // битовая маска для бита n
 public:
 	TBitField(int len);
-	TBitField();
 	TBitField(const TBitField &bf);
 	~TBitField();
 	// доступ к битам
 	int GetLength(void) const; // получить длину (к-во битов)
-    void SetBit(const int n); // установить бит
+	void SetBit(const int n); // установить бит
 	void ClrBit(const int n); // очистить бит
 	int GetBit(const int n) const; // получить значение бита
 	// битовые операции
@@ -31,4 +31,3 @@ public:
 	friend istream & operator>>(istream &istr, TBitField &bf);
 	friend ostream &operator<<(ostream &ostr, const TBitField &bf);
 };
-

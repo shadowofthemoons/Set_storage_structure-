@@ -1,2 +1,7 @@
-﻿  Set.cpp
-  Set_storage_structure.vcxproj -> D:\vs\Set_storage_structure\Debug\Set_storage_structure.exe
+﻿  pch.cpp
+  BitField.cpp
+  Set.cpp
+  Set_storage_structure.cpp
+  Создание кода...
+  LINK : не найден или не выполнена сборка D:\visual studio\Set_storage_structure\Debug\Set_storage_structure.exe при последней инкрементной компоновке; выполняется полная компоновка
+  Set_storage_structure.vcxproj -> D:\visual studio\Set_storage_structure\Debug\Set_storage_structure.exe
