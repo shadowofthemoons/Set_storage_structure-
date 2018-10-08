@@ -5,9 +5,6 @@
 #include <iostream>
 using namespace std;
 
-
-
-
 TBitField::TBitField(int len)
 {
 	if (len < 0)
@@ -106,25 +103,38 @@ int TBitField::GetBit(const int n) const
 
 int TBitField:: operator == (const TBitField &bf)
 {
-
-	if (BitLen == bf.BitLen)
+	int i=0,l;
+	if (MemLen < bf.MemLen)
+	{ 
+		l = MemLen;
+	}
+	else
 	{
-
-		int i;
-		for (i = 0; i < MemLen; i++)
+		l = bf.MemLen;
+	}
+	for (i = 0; i < l; i++)
+	{
+		if (pMem[i] != bf.pMem[i])
 		{
-			if (pMem[i] != bf.pMem[i])
-			{
-				break;
-			}
-		}
-		if (i == MemLen)
-		{
-
-			return 1;
+			return 0;
 		}
 	}
-	return 0;
+	for (i = l; i < bf.MemLen; i++)
+	{
+		if (bf.pMem[i] != 0)
+		{
+			return 0;
+		}
+	}
+	for (i = l; i < MemLen; i++)
+	{
+		if (pMem[i] != 0)
+		{
+			return 0;
+		}
+	}
+	return 1;
+	
 }
 
 TBitField& TBitField::operator=(const TBitField &bf)
@@ -164,9 +174,9 @@ TBitField TBitField::operator&(const TBitField &bf)
 	if (bf.BitLen < len)
 		len = bf.BitLen;
 	TBitField temp(len);
-	for (i = 0; i < MemLen; i++)
+	for (i = 0; i < temp.MemLen ; i++)
 		temp.pMem[i] = pMem[i];
-	for (i = 0; i < bf.MemLen; i++)
+	for (i = 0; i <temp.MemLen; i++)
 		temp.pMem[i] &= bf.pMem[i];
 	return temp;
 }
@@ -175,7 +185,7 @@ TBitField TBitField::operator~(void)
 {
 	TBitField bf(*this);
 	int i;
-	for (i = 0; i < BitLen; i++);
+	for (i = 0; i < BitLen; i++)
 	{
 		if (bf.GetBit(i))
 		{
@@ -186,6 +196,7 @@ TBitField TBitField::operator~(void)
 			bf.SetBit(i);
 		}
 	}
+	
 	return bf;
 }
 
